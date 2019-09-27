@@ -1,0 +1,4 @@
+garbage 115 434 253 499
+garbage 479 85 525 117
+garbage 1831 434 1906 472
+garbage 27 147 63 172

@@ -1,0 +1,4 @@
+garbage 141 453 271 518
+garbage 488 118 547 147
+garbage 1877 464 1920 510
+garbage 25 182 53 202
