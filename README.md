@@ -16,15 +16,30 @@ The detections folder contains text files as well, one for each image. Each line
 
 ## Running the evaluator
 
-1. Open _main.py_ and edit the following variables.
+1. Navigate to the cocoapi-master/PythonAPI directory.
+```
+cd cocoapi-master/PythonAPI
+```
+
+2. Run the makefile.
+```
+mak
+```
+
+3. Copy pycocotools directory back to base directory.
+``` mv pycocotools/ ../../ ```
+
+4. Open _main.py_ and edit the following variables.
+
 ```
 det_dir = '/path/to/detections'
 gt_dir = '/path/to/groundtruths'
 categories = np.array([{'id': 0, 'name': 'className'}, {'id': 1, 'name': 'className'}])
 ```
-2. Run `python main.py`
+5. Run `python3 main.py`
 
-3. Metrics in the following format will be displayed.
+6. Metrics in the following format will be displayed.
+
 ```
  Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.102
  Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.333
@@ -39,3 +54,8 @@ categories = np.array([{'id': 0, 'name': 'className'}, {'id': 1, 'name': 'classN
  Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.151
  Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.394
  ```
+ 
+ 
+ ## Credits
+ 
+ Credits to the authors at https://github.com/cocodataset/cocoapi and https://github.com/tensorflow/models/tree/master/research/object_detection. Most of the code is theirs. 
