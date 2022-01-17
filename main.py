@@ -80,12 +80,12 @@ det_classes = np.array(det_classes)
 #Convert ground truth list to dict
 groundtruth_dict = coco_tools.ExportGroundtruthToCOCO(
       image_ids_gt, gt_boxes, gt_classes,
-      categories, output_path=None)
+      categories)
 
 #Convert detections list to dict
 detections_list = coco_tools.ExportDetectionsToCOCO(
     image_ids_det, det_boxes, det_scores,
-    det_classes, categories, output_path=None)
+    det_classes, categories)
 
 groundtruth = coco_tools.COCOWrapper(groundtruth_dict)
 detections = groundtruth.LoadAnnotations(detections_list)

@@ -54,9 +54,7 @@ from pycocotools import mask
 
 from six.moves import range
 from six.moves import zip
-import tensorflow as tf
 
-from object_detection.utils import json_utils
 
 
 class COCOWrapper(coco.COCO):
@@ -112,7 +110,7 @@ class COCOWrapper(coco.COCO):
     results = coco.COCO()
     results.dataset['images'] = [img for img in self.dataset['images']]
 
-    tf.logging.info('Loading and preparing annotation results...')
+    # tf.logging.info('Loading and preparing annotation results...')
     tic = time.time()
 
     if not isinstance(annotations, list):
@@ -134,7 +132,7 @@ class COCOWrapper(coco.COCO):
         ann['bbox'] = mask.toBbox(ann['segmentation'])
         ann['id'] = idx + 1
         ann['iscrowd'] = 0
-    tf.logging.info('DONE (t=%0.2fs)', (time.time() - tic))
+    # tf.logging.info('DONE (t=%0.2fs)', (time.time() - tic))
 
     results.dataset['annotations'] = annotations
     results.createIndex()
@@ -255,9 +253,7 @@ class COCOEvalWrapper(cocoeval.COCOeval):
         ('Recall/AR@100', self.stats[8]),
         ('Recall/AR@100 (small)', self.stats[9]),
         ('Recall/AR@100 (medium)', self.stats[10]),
-        ('Recall/AR@100 (large)', self.stats[11]),
-        ('Mean IoU', self.stats[12]),
-        ('Precision Array', self.stats[13])
+        ('Recall/AR@100 (large)', self.stats[11])
     ])
     if not include_metrics_per_category:
       return summary_metrics, {}
@@ -486,9 +482,9 @@ def ExportGroundtruthToCOCO(image_ids,
       'images': image_export_list,
       'categories': categories
   }
-  if output_path:
-    with tf.gfile.GFile(output_path, 'w') as fid:
-      json_utils.Dump(groundtruth_dict, fid, float_digits=4, indent=2)
+  # if output_path:
+  #   with tf.gfile.GFile(output_path, 'w') as fid:
+  #     json_utils.Dump(groundtruth_dict, fid, float_digits=4, indent=2)
   return groundtruth_dict
 
 
@@ -673,9 +669,9 @@ def ExportDetectionsToCOCO(image_ids,
         boxes,
         scores,
         classes))
-  if output_path:
-    with tf.gfile.GFile(output_path, 'w') as fid:
-      json_utils.Dump(detections_export_list, fid, float_digits=4, indent=2)
+  # if output_path:
+  #   with tf.gfile.GFile(output_path, 'w') as fid:
+  #     json_utils.Dump(detections_export_list, fid, float_digits=4, indent=2)
   return detections_export_list
 
 
@@ -753,9 +749,9 @@ def ExportSegmentsToCOCO(image_ids,
     segment_export_list.extend(ExportSingleImageDetectionMasksToCoco(
         image_id, category_id_set, np.squeeze(masks, axis=3), scores, classes))
 
-  if output_path:
-    with tf.gfile.GFile(output_path, 'w') as fid:
-      json_utils.Dump(segment_export_list, fid, float_digits=4, indent=2)
+  # if output_path:
+  #   with tf.gfile.GFile(output_path, 'w') as fid:
+  #     json_utils.Dump(segment_export_list, fid, float_digits=4, indent=2)
   return segment_export_list
 
 
@@ -852,7 +848,7 @@ def ExportKeypointsToCOCO(image_ids,
             'score': float(scores[i])
         })
 
-  if output_path:
-    with tf.gfile.GFile(output_path, 'w') as fid:
-      json_utils.Dump(keypoints_export_list, fid, float_digits=4, indent=2)
+  # if output_path:
+  #   with tf.gfile.GFile(output_path, 'w') as fid:
+  #     json_utils.Dump(keypoints_export_list, fid, float_digits=4, indent=2)
   return keypoints_export_list
