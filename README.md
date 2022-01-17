@@ -27,7 +27,9 @@ make
 ```
 
 3. Copy pycocotools directory back to base directory.
-``` mv pycocotools/ ../../ ```
+```
+mv pycocotools/ ../../
+```
 
 4. Open _main.py_ and edit the following variables.
 
