@@ -60,4 +60,4 @@ categories = np.array([{'id': 0, 'name': 'className'}, {'id': 1, 'name': 'classN
  
  ## Credits
  
- Credits to the authors at https://github.com/cocodataset/cocoapi and https://github.com/tensorflow/models/tree/master/research/object_detection. Most of the code is theirs. 
+ Credits to the authors at https://github.com/cocodataset/cocoapi and https://github.com/tensorflow/models/tree/master/research/object_detection
