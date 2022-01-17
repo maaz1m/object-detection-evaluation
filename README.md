@@ -1,8 +1,7 @@
 # Object Detection Evaluation
 
-Evaluating the results of object detection models in an onerous task, with several metrics such as Mean Average Precision
-and Average Recall requiring computation. This repo packages the COCO evaluation metrics by Tensorflow Object Detection API into
-a usable Python program.
+This repo packages the COCO evaluation metrics by Tensorflow Object Detection API into
+an easily usable Python program. It calculates metrics such as mean Average Precision (mAP) and recall with ease.
 
 ## Ground truths
 The ground truth folder contains text files, one for each image. Each line in a text file is of the format:
