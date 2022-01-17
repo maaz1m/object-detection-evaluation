@@ -23,7 +23,7 @@ cd cocoapi-master/PythonAPI
 
 2. Run the makefile.
 ```
-mak
+make
 ```
 
 3. Copy pycocotools directory back to base directory.
